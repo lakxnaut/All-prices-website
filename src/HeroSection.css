@@ -1,0 +1,24 @@
+/* HeroSection.css */
+
+.hero-section {
+    background-color: #007bff; /* Set the background color as needed */
+    color: #fff; /* Set the text color as needed */
+    text-align: center;
+    padding: 100px 0; /* Adjust padding as needed */
+  }
+  
+  .hero-section h1 {
+    font-size: 3rem; /* Adjust font size as needed */
+  }
+  
+  .hero-section p {
+    font-size: 1.5rem; /* Adjust font size as needed */
+  }
+
+  
+/* HeroSection.css */
+
+.bg-orange {
+    background-color: #ff8c00; /* Adjust the shade of orange */
+  }
+  

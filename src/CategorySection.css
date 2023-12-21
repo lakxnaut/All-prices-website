@@ -1,0 +1,17 @@
+/* CategorySection.css */
+
+.category-section {
+    padding: 50px 0; /* Adjust padding as needed */
+  }
+  
+  .category-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .bg-orange {
+    background-color: #ff8c00; /* Adjust the shade of orange */
+  }
+  
