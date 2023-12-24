@@ -7,14 +7,46 @@ import './CategorySection.css'; // Create a separate CSS file for additional sty
 
 const CategorySection = () => {
   const [showModal, setShowModal] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+ 
+    const formData = {
+      name: event.target.name.value,
+      email: event.target.email.value,
+      contactNumber: event.target.contactNumber.value,
+    };
+
+    console.log('Form submitted:', formData);
+
+    // Set formSubmitted to true to trigger the thank you message
+    setFormSubmitted(true);
+  };
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const renderFormContent = () => {
+    if (formSubmitted) {
+      return (
+        <div>
+          <p>Thank you for submitting the form!</p>
+          <p>For further assistance, contact us on WhatsApp:</p>
+          <Button variant="success" onClick={handleCloseModal}>
+            Open WhatsApp
+          </Button>
+        </div>
+      );
+    }
+  }
+
 
   const handleButtonClick = () => {
     setShowModal(true);
   };
 
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
+ 
 
   const handleDownloadRequest = (event) => {
     event.preventDefault();
@@ -26,16 +58,30 @@ const CategorySection = () => {
     <section className="category-section bg-orange">
       <Container>
         <div className="category-buttons">
-          <Button variant="light" size="lg" onClick={handleButtonClick}>PLASTIC</Button>
-          <Button variant="light" size="lg" onClick={handleButtonClick}>PLASTIC</Button>
-          <Button variant="light" size="lg" onClick={handleButtonClick}>METAL</Button>
-          <Button variant="light" size="lg" onClick={handleButtonClick}>STEEL</Button>
-          <Button variant="light" size="lg" onClick={handleButtonClick}>ABS</Button>
-          <Button variant="light" size="lg" onClick={handleButtonClick}>LD</Button>
-          <Button variant="light" size="lg" onClick={handleButtonClick}>MD</Button>
-          <Button variant="light" size="lg" onClick={handleButtonClick}>POLYESTER</Button>
-          <Button variant="light" size="lg" onClick={handleButtonClick}>PET</Button>
-          {/* Add more buttons for additional categories */}
+        <Button className="category-button" variant="light" size="lg" onClick={() => handleButtonClick('PLASTIC')}>
+          PLASTIC
+        </Button>
+        <Button className="category-button alternate" variant="light" size="lg" onClick={() => handleButtonClick('METAL')}>
+          METAL
+        </Button>
+        <Button className="category-button" variant="light" size="lg" onClick={() => handleButtonClick('STEEL')}>
+          STEEL
+        </Button>
+        <Button className="category-button alternate" variant="light" size="lg" onClick={() => handleButtonClick('ABS')}>
+          ABS
+        </Button>
+        <Button className="category-button" variant="light" size="lg" onClick={() => handleButtonClick('LD')}>
+          LD
+        </Button>
+        <Button className="category-button alternate" variant="light" size="lg" onClick={() => handleButtonClick('MD')}>
+          MD
+        </Button>
+        <Button className="category-button" variant="light" size="lg" onClick={() => handleButtonClick('POLYESTER')}>
+          POLYESTER
+        </Button>
+        <Button className="category-button alternate" variant="light" size="lg" onClick={() => handleButtonClick('PET')}>
+          PET
+        </Button>
         </div>
 
         <Modal show={showModal} onHide={handleCloseModal} centered>

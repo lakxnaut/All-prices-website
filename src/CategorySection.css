@@ -14,4 +14,74 @@
   .bg-orange {
     background-color: #ff8c00; /* Adjust the shade of orange */
   }
+
+  .category-button {
+    width: calc(25% - 10px); /* Four buttons per row with 10px gap */
+    margin-bottom: 10px;
+    background-color: #3498db;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition effects */
+    cursor: pointer;
+    animation: vibrate 1s ease infinite; /* Vibration animation */
+  }
   
+  @media (max-width: 768px) {
+    .category-button {
+      width: calc(50% - 10px); /* Two buttons per row with 10px gap on smaller screens */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .category-button {
+      width: calc(100% - 10px); /* One button per row with 10px gap on even smaller screens */
+    }
+  }
+  
+ 
+  
+  .category-button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05); /* Scale the button slightly on hover */
+    animation: none; /* Pause the vibration animation on hover */
+  }
+  
+  .category-button.alternate {
+    background-color: #e74c3c; /* Different color for alternate buttons */
+    animation: rotateScale 1s ease infinite; /* Different animation for alternate buttons */
+  }
+  
+  @keyframes vibrate {
+    0% {
+      transform: scale(1.01);
+    }
+    25% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+    75% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.02);
+    }
+  }
+  
+  @keyframes rotateScale {
+    0% {
+      transform: rotate(0) scale(1);
+    }
+    25% {
+      transform: rotate(0deg) scale(1.01);
+    }
+    50% {
+      transform: rotate(0deg) scale(1);
+    }
+    75% {
+      transform: rotate(0deg) scale(1.01);
+    }
+    100% {
+      transform: rotate(0) scale(1);
+    }
+  }

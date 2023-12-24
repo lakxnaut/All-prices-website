@@ -8,17 +8,17 @@ import './HeroSection.css'; // Create a separate CSS file for additional styling
 const HeroSection = () => {
   return (
     <div className="jumbotron jumbotron-fluid bg-orange text-white text-center">
-      <Container>
+      <Container className="highlight-section">
         <h1 className="display-4">Get All India Scrap / New Prices</h1>
-        <h1 className="display-4">Get All India Scrap / New Prices</h1>
-        <p className="lead">
-          eeefehdhfjjjjjjjjjjjjjjjjjjjjjjjj dfdfhfdhg dshgdshgdfhs dsfghgdfhgfhd
-          dfhdfhdghhfd dsfhgdsfghdfgd dfshgdsfhgdhgds dsfhgdsgd dfghdsfghdfh
-          dfhghdsfghdf ghdfghdfsh dfgh eeefehdhfjjjjjjjjjjjjjjjjjjjjjjjj dfdfhfdhg dshgdshgdfhs dsfghgdfhgfhd dfhdfhdghhfd dsfhgdsfghdfgd dfshgdsfhgdhgds dsfhgdsgd dfghdsfghdfh dfhghdsfghdf ghdfghdfsh dfghdfsghdsf dfhgdsghdsf dfsghdsfgdf dfghdsfghdsghd ghfdsghd dfghdfsghd dfshgdsfghdfgh dsfghdfghdfs dfghdfgdghdgf fdshgdsfghd dsfghdfghdf dfsgdsfgh
-dfsghdsf dfhgdsghdsf dfsghdsfgdf dfghdsfghdsghd
-          ghfdsghd dfghdfsghd dfshgdsfghdfgh dsfghdfghdfs dfghdfgdghdgf fdshgdsfghd
-          dsfghdfghdf dfsgdsfgh
-        </p>
+        <h1 className="display-4">जानिए स्क्रैप वा नया माल का रेट (रोज ताजा भाव)</h1>
+        <h2 className="lead">
+        We provide metals + steel + plastic + paper + gatta LIVE Rates In 30 min daily (24×7)Service
+        </h2>
+
+        <h2 className="lead">
+        जानिए Metal + steel के ताजा भाव 30 मिनट में कोई छुट्टी नहीं (24×7)सर्विस
+        </h2>
+
       </Container>
     </div>
   );

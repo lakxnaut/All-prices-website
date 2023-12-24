@@ -22,3 +22,44 @@
     background-color: #ff8c00; /* Adjust the shade of orange */
   }
   
+
+  .highlight-section {
+    background-color: #ff8c00; /* Blue color */
+    color: #fff; /* White text */
+    padding: 20px;
+    animation: zoomInOut 4s infinite alternate; /* Zoom in and out animation */
+  }
+  
+  @keyframes zoomInOut {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.02);
+    }
+  }
+
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: #f1f3f4; /* Blue color */
+    background-color: #e6af2f; /* Yellow background, similar to a highlighter */
+    padding: 4px; /* Add padding for spacing around the text */
+    border-radius: 4px; /* Round the corners for a softer look */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+    display: inline-block; /* Make the background color only as wide as the text */
+    margin-bottom: 10px; /* Adjust as needed for spacing between elements */
+    transition: background-color 0.3s ease-in-out; /* Add a smooth transition effect */
+  }
+
+  .lead{
+    font-family: 'Montserrat', sans-serif;
+    color: #000000; /* Blue color */
+    background-color: #e2e20e; /* Yellow background, similar to a highlighter */
+    padding: 4px; /* Add padding for spacing around the text */
+    border-radius: 4px; /* Round the corners for a softer look */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+    display: inline-block; /* Make the background color only as wide as the text */
+    margin-bottom: 10px; /* Adjust as needed for spacing between elements */
+    transition: background-color 0.3s ease-in-out; /* Add a smooth transition effect */
+
+  }
