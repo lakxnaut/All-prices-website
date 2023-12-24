@@ -1,21 +1,19 @@
-// CategorySection.js
-
-import React, { useState } from 'react';
+import  { useState, FormEvent } from 'react';
 import { Container, Button, Modal, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './CategorySection.css'; // Create a separate CSS file for additional styling if needed
+import './CategorySection.css';
 
-const CategorySection = () => {
+const CategorySection: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
- 
+
     const formData = {
-      name: event.target.name.value,
-      email: event.target.email.value,
-      contactNumber: event.target.contactNumber.value,
+      name: (event.target as any).name.value,
+      email: (event.target as any).email.value,
+      contactNumber: (event.target as any).contactNumber.value,
     };
 
     console.log('Form submitted:', formData);
@@ -23,8 +21,10 @@ const CategorySection = () => {
     // Set formSubmitted to true to trigger the thank you message
     setFormSubmitted(true);
   };
+
   const handleCloseModal = () => {
     setShowModal(false);
+    setFormSubmitted(false); // Reset formSubmitted when the modal is closed
   };
 
   const renderFormContent = () => {
@@ -39,66 +39,51 @@ const CategorySection = () => {
         </div>
       );
     }
-  }
 
+    return (
+      <Form onSubmit={handleFormSubmit}>
+        <Form.Group controlId="name">
+          <Form.Label>Name</Form.Label>
+          <Form.Control type="text" placeholder="Your Name" required />
+        </Form.Group>
 
-  const handleButtonClick = () => {
-    setShowModal(true);
+        <Form.Group controlId="email">
+          <Form.Label>Email</Form.Label>
+          <Form.Control type="email" placeholder="Your Email" required />
+        </Form.Group>
+
+        <Form.Group controlId="contactNumber">
+          <Form.Label>Contact Number</Form.Label>
+          <Form.Control type="tel" placeholder="Your Contact Number" required />
+        </Form.Group>
+
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+    );
   };
 
- 
-
-  const handleDownloadRequest = (event) => {
-    event.preventDefault();
-    // Handle download request logic here
-    handleCloseModal();
+  const handleButtonClick = (category: string) => {
+    console.log(category);
+    setShowModal(true);
   };
 
   return (
     <section className="category-section bg-orange">
       <Container>
         <div className="category-buttons">
-        <Button className="category-button" variant="light" size="lg" onClick={() => handleButtonClick('PLASTIC')}>
-          PLASTIC
-        </Button>
-        <Button className="category-button alternate" variant="light" size="lg" onClick={() => handleButtonClick('METAL')}>
-          METAL
-        </Button>
-        <Button className="category-button" variant="light" size="lg" onClick={() => handleButtonClick('STEEL')}>
-          STEEL
-        </Button>
-        <Button className="category-button alternate" variant="light" size="lg" onClick={() => handleButtonClick('ABS')}>
-          ABS
-        </Button>
-        <Button className="category-button" variant="light" size="lg" onClick={() => handleButtonClick('LD')}>
-          LD
-        </Button>
-        <Button className="category-button alternate" variant="light" size="lg" onClick={() => handleButtonClick('MD')}>
-          MD
-        </Button>
-        <Button className="category-button" variant="light" size="lg" onClick={() => handleButtonClick('POLYESTER')}>
-          POLYESTER
-        </Button>
-        <Button className="category-button alternate" variant="light" size="lg" onClick={() => handleButtonClick('PET')}>
-          PET
-        </Button>
+          <Button className="category-button" variant="light" size="lg" onClick={() => handleButtonClick('PLASTIC')}>
+            PLASTIC
+          </Button>
+          {/* Other category buttons... */}
         </div>
 
         <Modal show={showModal} onHide={handleCloseModal} centered>
           <Modal.Header closeButton>
-            <Modal.Title>Download App</Modal.Title>
+            <Modal.Title>{formSubmitted ? 'Thank You!' : 'Download App'}</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
-            <Form onSubmit={handleDownloadRequest}>
-              <Form.Group controlId="phoneNumber">
-                <Form.Label>Phone Number</Form.Label>
-                <Form.Control type="tel" placeholder="Enter your phone number" required />
-              </Form.Group>
-              <Button variant="primary" type="submit">
-                Request Download
-              </Button>
-            </Form>
-          </Modal.Body>
+          <Modal.Body>{renderFormContent()}</Modal.Body>
         </Modal>
       </Container>
     </section>

@@ -1,6 +1,4 @@
-// NavBar.js
 
-import React from 'react';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../src/assets/allprices.png'

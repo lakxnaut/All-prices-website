@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const PopupModal = () => {
+const PopupModal: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -18,19 +18,16 @@ const PopupModal = () => {
     setShowModal(false);
   };
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Add your logic to handle form submission
-    // You can access form data from the event.target
     const formData = {
-      name: event.target.name.value,
-      email: event.target.email.value,
-      contactNumber: event.target.contactNumber.value,
+      name: (event.target as any).elements.name.value,
+      email: (event.target as any).elements.email.value,
+      contactNumber: (event.target as any).elements.contactNumber.value,
     };
 
     console.log('Form submitted:', formData);
 
-    // Set formSubmitted to true to trigger the thank you message
     setFormSubmitted(true);
   };
 

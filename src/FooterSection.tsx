@@ -1,12 +1,20 @@
-// FooterSection.js
+import React from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './FooterSection.css'; // Create a separate CSS file for additional styling if needed
+import './FooterSection.css';
 
-const FooterSection = () => {
-  const handleSubmit = (event) => {
+const FooterSection: React.FC = () => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Add your form submission logic here
+
+    const formData = {
+      name: (event.target as any).formName.value,
+      email: (event.target as any).formEmail.value,
+      message: (event.target as any).formMessage.value,
+    };
+
+    // Add your form submission logic here using formData
+    console.log('Form submitted:', formData);
   };
 
   return (

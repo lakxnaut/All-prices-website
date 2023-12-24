@@ -1,6 +1,4 @@
-// HeroSection.js
 
-import React from 'react';
 import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './HeroSection.css'; // Create a separate CSS file for additional styling if needed
